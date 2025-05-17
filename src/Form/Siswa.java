@@ -62,6 +62,7 @@ public class Siswa extends javax.swing.JFrame {
         alamatTxtArea = new javax.swing.JTextArea();
         kelasDd = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        tanggalLahirDc = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,15 +157,6 @@ public class Siswa extends javax.swing.JFrame {
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(67, 67, 67)
-                                .addComponent(lakiLakiRb))
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addComponent(perempuanRb))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(137, 137, 137))
@@ -173,7 +165,18 @@ public class Siswa extends javax.swing.JFrame {
                                 .addGap(58, 58, 58)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nisTxt)
-                            .addComponent(namaTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))))
+                            .addComponent(namaTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7))
+                        .addGap(66, 66, 66)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lakiLakiRb)
+                                .addGap(18, 18, 18)
+                                .addComponent(perempuanRb)))))
                 .addContainerGap(38, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -200,8 +203,10 @@ public class Siswa extends javax.swing.JFrame {
                         .addComponent(lakiLakiRb)
                         .addComponent(perempuanRb)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -432,6 +437,7 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JTextField nisTxt;
     private javax.swing.JRadioButton perempuanRb;
     private javax.swing.JButton tambahBtn;
+    private com.toedter.calendar.JDateChooser tanggalLahirDc;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }

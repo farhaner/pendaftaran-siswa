@@ -14,6 +14,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import Koneksi.koneksi;
 import java.sql.ResultSet;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,7 +27,16 @@ public class Guru extends javax.swing.JFrame {
      * Creates new form Guru
      */
     public Guru() {
-        initComponents();    }
+        initComponents();    
+        kosong();
+    }
+    
+    protected void kosong(){
+    nipTxt.setText("");
+    namaTxt.setText("");
+    telpTxt.setText("");
+    buttonGroup1.clearSelection();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +65,7 @@ public class Guru extends javax.swing.JFrame {
         cariBtn = new javax.swing.JButton();
         cariTxt = new javax.swing.JTextField();
         updateBtn = new javax.swing.JButton();
+        tanggalLahirDc = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -102,6 +113,11 @@ public class Guru extends javax.swing.JFrame {
                 "NIP", "Nama", "Tanggal Lahir", "Jenis Kelamin", "No Telp"
             }
         ));
+        guruTbl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guruTblMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(guruTbl);
 
         cariBtn.setText("Cari");
@@ -133,7 +149,6 @@ public class Guru extends javax.swing.JFrame {
                         .addComponent(cariTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cariBtn))
-                    .addComponent(jLabel7)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addGroup(layout.createSequentialGroup()
@@ -144,15 +159,19 @@ public class Guru extends javax.swing.JFrame {
                         .addComponent(perempuanRb))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jLabel6)
-                            .addGap(102, 102, 102)
-                            .addComponent(telpTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jLabel2)
                             .addGap(137, 137, 137)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(namaTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                .addComponent(nipTxt))))
+                                .addComponent(nipTxt)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7))
+                            .addGap(66, 66, 66)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(telpTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(203, 203, 203)
                         .addComponent(jLabel1)))
@@ -181,8 +200,10 @@ public class Guru extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(telpTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel7)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel7)
+                    .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambahBtn)
@@ -285,36 +306,55 @@ public class Guru extends javax.swing.JFrame {
     }//GEN-LAST:event_cariBtnActionPerformed
 
     private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
-//        String jenis = null;
-//        if(lakiLakiRb.isSelected()){
-//            jenis = "Laki-Laki";
-//        }
-//        else if(perempuanRb.isSelected()){
-//            jenis = "Perempuan";
-//        }
-//        String sql = "update guru set nama_lengkap = ?, jenis=?, asal_sekolah=?, nisn=?, nik=?, nomor_kk=?, ttl=?, alamat=?, n_ayah=?, k_ayah=?, n_ibu=?, k_ibu=?, n_wali=?, k_wali=? where nama='"+txtnm.getText()+"'";
-//        try{Connection conn = koneksi.getConnection();
-//            PreparedStatement stat = conn.prepareStatement(sql);  
-//            stat.setString(1, nipTxt.getText());
-//            stat.setString(2, namaTxt.getText());
-//            stat.setString(3, jenis);
-//            stat.setString(4, telpTxt.getText());
-//            java.sql.Date sqlDate = new java.sql.Date(tanggalLahirDc.getDate().getTime());
-//            stat.setDate(5, sqlDate);            
-//            
-//            stat.executeUpdate();
-//            JOptionPane.showMessageDialog(null, "data berhasil diubah");
-////            kosong();
-//            namaTxt.requestFocus();
-//        }
-//        catch (SQLException e){
-//            JOptionPane.showMessageDialog(null, "data gagal diubah"+e);
-//        }       
+        String jenis = null;
+        if(lakiLakiRb.isSelected()){
+            jenis = "Laki-Laki";
+        }
+        else if(perempuanRb.isSelected()){
+            jenis = "Perempuan";
+       }
+        String sql = "update guru set nama_lengkap = ?, jenis=?, asal_sekolah=?, nisn=?, nik=?, nomor_kk=?, ttl=?, alamat=?, n_ayah=?, k_ayah=?, n_ibu=?, k_ibu=?, n_wali=?, k_wali=? where nama='"+namaTxt.getText()+"'";
+        try{Connection conn = koneksi.getConnection();
+            PreparedStatement stat = conn.prepareStatement(sql);  
+            stat.setString(1, nipTxt.getText());
+            stat.setString(2, namaTxt.getText());
+            stat.setString(3, jenis);
+            stat.setString(4, telpTxt.getText());
+            java.sql.Date sqlDate = new java.sql.Date(tanggalLahirDc.getDate().getTime());
+            stat.setDate(5, sqlDate);            
+            
+            stat.executeUpdate();
+            JOptionPane.showMessageDialog(null, "data berhasil diubah");
+            kosong();
+            namaTxt.requestFocus();
+        }
+        catch (SQLException e){
+            JOptionPane.showMessageDialog(null, "data gagal diubah"+e);
+        }       
     }//GEN-LAST:event_updateBtnActionPerformed
 
     private void namaTxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namaTxtActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_namaTxtActionPerformed
+
+    private void guruTblMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guruTblMouseClicked
+              int bar = guruTbl.getSelectedRow();
+        String a = guruTbl.getValueAt(bar, 1).toString();
+        String b = guruTbl.getValueAt(bar, 2).toString();
+        Object c = guruTbl.getValueAt(bar, 3);
+        String d = guruTbl.getValueAt(bar, 4).toString();
+        String e = guruTbl.getValueAt(bar, 5).toString();
+        
+        nipTxt.setText(a);
+        namaTxt.setText(b);
+//        tanggalLahirDc.setDate((Date) c);
+        if ("Laki-Laki".equals(d)) {
+            lakiLakiRb.setSelected(true);
+            }else{
+            perempuanRb.setSelected(true);
+            }
+        telpTxt.setText(e);
+    }//GEN-LAST:event_guruTblMouseClicked
 
     
      
@@ -370,6 +410,7 @@ public class Guru extends javax.swing.JFrame {
     private javax.swing.JTextField nipTxt;
     private javax.swing.JRadioButton perempuanRb;
     private javax.swing.JButton tambahBtn;
+    private com.toedter.calendar.JDateChooser tanggalLahirDc;
     private javax.swing.JTextField telpTxt;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
