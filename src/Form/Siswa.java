@@ -53,7 +53,6 @@ public class Siswa extends javax.swing.JFrame {
         lakiLakiRb = new javax.swing.JRadioButton();
         perempuanRb = new javax.swing.JRadioButton();
         tambahBtn = new javax.swing.JButton();
-        tanggalLahirDc = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         guruTbl = new javax.swing.JTable();
         cariBtn = new javax.swing.JButton();
@@ -182,10 +181,7 @@ public class Siswa extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(updateBtn)
                                     .addGap(23, 23, 23)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(66, 66, 66)
-                                .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(jLabel7))))
                 .addGap(118, 177, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -208,9 +204,8 @@ public class Siswa extends javax.swing.JFrame {
                         .addComponent(lakiLakiRb)
                         .addComponent(perempuanRb)))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel7)
+                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -443,7 +438,6 @@ public class Siswa extends javax.swing.JFrame {
     private javax.swing.JTextField nisTxt;
     private javax.swing.JRadioButton perempuanRb;
     private javax.swing.JButton tambahBtn;
-    private com.toedter.calendar.JDateChooser tanggalLahirDc;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }

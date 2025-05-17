@@ -50,7 +50,6 @@ public class Guru extends javax.swing.JFrame {
         lakiLakiRb = new javax.swing.JRadioButton();
         perempuanRb = new javax.swing.JRadioButton();
         tambahBtn = new javax.swing.JButton();
-        tanggalLahirDc = new com.toedter.calendar.JDateChooser();
         jScrollPane1 = new javax.swing.JScrollPane();
         guruTbl = new javax.swing.JTable();
         cariBtn = new javax.swing.JButton();
@@ -161,10 +160,7 @@ public class Guru extends javax.swing.JFrame {
                                 .addComponent(lakiLakiRb)
                                 .addGap(18, 18, 18)
                                 .addComponent(perempuanRb))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(66, 66, 66)
-                                .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(177, Short.MAX_VALUE))
         );
@@ -192,10 +188,8 @@ public class Guru extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(telpTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(tanggalLahirDc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                .addComponent(jLabel7)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tambahBtn)
                     .addComponent(updateBtn))
@@ -378,7 +372,6 @@ public class Guru extends javax.swing.JFrame {
     private javax.swing.JTextField nipTxt;
     private javax.swing.JRadioButton perempuanRb;
     private javax.swing.JButton tambahBtn;
-    private com.toedter.calendar.JDateChooser tanggalLahirDc;
     private javax.swing.JTextField telpTxt;
     private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
